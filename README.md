@@ -1,10 +1,9 @@
 # Работа с bash
 
-## Task 1
-
+## 💾 Задача 1
+> Работа с файлами и каталогами
 ### Command History
 ```bash
-
 cd ~                                 # Открыть домашнюю директорию ~/home/TestUser
 pwd                                  # Определить имя папки ~/home/TestUser
 mkdir test1                          # Создать внутри каталог test1
@@ -40,11 +39,10 @@ echo "pipeline
 
 ```
 
-## Task 2
-
+## 💾 Задача 2
+> Редактирование файлов, проверка и killing процессов, проверка доступности ресурса, отправка HTTP-запросов 
 ### Command History
 ```bash
-
 cd ~                                        # Открыть домашнюю директорию ~/home/TestUser
 mkdir test3                                 # Создать каталог test3
                                             # Создать файл 4,5 и 6 внутри каталога test3
@@ -94,5 +92,29 @@ curl -X GET https://petstore.swagger.io/v2/pet/findByStatus?status=pending,sold,
 
                                             # Используя POST и команду curl, создать нового пользователя на https://petstore.swagger.io/
 curl -X POST https://petstore.swagger.io/v2/user --data "id=777" --data "username=Astar" --data "firstName=Astarion" --data "lastName=Baldur" --data "email=AstarBaldr@mail.com" --data "password=abcde12345" --data "phone=88005553535" --data "userStatus=1"
-
 ```
+
+## 💾 Задача 3
+> Получение информационных логов с удаленного сервера и сохранение логов в отдельные файлы
+### Command History
+```bash
+ssh-keygen                                     # Генерация ключа для подключения к серверу
+cat ~/.ssh/id_rsa.pub                          # Получение публичного ключа
+                                               # Получить данные для подключения к серверу с публичным ключом
+$ ssh <user_name>@<host> -p <port>             # Подключение к удалённому серверу
+
+pwd 	                                       # Определить имя папки (~/home/morty)
+mkdir generallogs                              # Создать каталог generallogs
+touch info.log                                 # Создать файл info.log внутри домашнего каталога
+                                               # Копирование файла с логами в папку generallogs
+cp //var/www/backend/packages/main/logs/combined.log /home/morty/generallogs/logs1.log
+                                               # Копирование файла с логами в папку generallogs
+cp //var/www/backend/packages/secondary/build/logs/combined.log /home/morty/generallogs/logs2.log
+                                               # Выборка информационных логов (info) в файл info.log
+grep -R info /home/morty/generallogs > info.log
+                 #info.log лежит в /home/morty/
+```
+---
+                                                          2025
+
+
